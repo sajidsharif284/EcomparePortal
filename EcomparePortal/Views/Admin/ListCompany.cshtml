@@ -1,0 +1,84 @@
+﻿@model IEnumerable<EcomparePortal.Models.Company>
+
+@{
+    ViewBag.Title = "ListCompany";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="~/Content/assets/css/StyleSheet1.css" />
+}
+
+<div class="row">
+    <h2 class="ml-4 mt-4">List Company</h2>
+    <a class="btn d-block  ml-3 mt-4" style="background-color:#57789c;color:white;line-height:30px" href="@Url.Action("RegisterCompany", "Account")">Add Company</a>
+</div>
+<table class="table table-bordered table-striped table-hover styled-table ml-3 " style="width:95%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyEmail)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsFeatured)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model)
+{
+    <tbody>
+        <tr>
+
+            <td>
+                <img src="@item.Logo" style="width:30px;height:30px"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsFeatured)
+            </td>
+            <td>
+                <ul class="list-inline m-0">
+                   
+                    <a href="@Url.Action("EditCompany","Admin",new { id=item.Id})">
+                        <li class="list-inline-item">
+                            <button class="btn btn-primary btn-sm rounded-0" type="button">Edit</button>
+                        </li>
+                    </a>
+                    <a href="@Url.Action("DeleteCompany","Admin",new { id=item.Id})">
+                        <li class="list-inline-item">
+                            <button class="btn btn-danger btn-sm rounded-0" type="button">Delete</button>
+                        </li>
+                    </a>
+
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+}
+
+</table>

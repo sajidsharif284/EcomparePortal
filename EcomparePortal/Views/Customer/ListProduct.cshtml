@@ -1,0 +1,145 @@
+﻿@model IEnumerable<EcomparePortal.Models.Product>
+
+@{
+    ViewBag.Title = "ListProduct";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+    <link rel="stylesheet" href="~/Content/assets/css/style.css">
+    <link rel="stylesheet" href="~/Content/assets/css/StyleSheet1.css" />
+    <link href="~/Content/assets/css/compareproduct.css" rel="stylesheet">
+
+    <script src="~/Content/assets/scripts/compareproduct.js"></script>
+}
+<div class="container">
+    <div class="heading heading-center mb-3">
+        <h2 class="title">Top Selling Products</h2><!-- End .title -->
+
+    </div><!-- End .heading -->
+
+</div><!-- End .container -->
+<div class="tab-content">
+    <div class="tab-pane p-0 fade show active" id="top-all-tab" role="tabpanel" aria-labelledby="top-all-link">
+        <div class="products">
+            <div class="row justify-content-center">
+                @foreach (var item in @ViewBag.list)
+                {
+                    <div class="col-md-3 mb-2 " style="width:300px;height:380px"  >
+                        <div class="product product-11 text-center selectProduct w3-padding" data-id="@item.ProductId" data-title="@item.Product.ProductName" data-company="@item.Product.Company.CompanyName" data-img="@item.Product.Logo">
+                            <figure class="product-media p-0 m-0">
+                                <a href="product.html">
+                                        <img src="@item.Product.Logo" alt="Product image" style="height:150px;" class="product-image mb-0">
+                                </a>
+                                <div class="product-action-vertical" >
+                                    <a href="#" class="btn-product-icon btn-wishlist "><span>add to wishlist</span></a>
+                                    
+                                </div><!-- End .product-action-vertical -->
+                            </figure><!-- End .product-media -->
+                            <div class="product-body p-0">
+                                <div class="product-cat">
+                                    <a href="#">@item.Product.Company.CompanyName</a> <a class="w3-btn-floating w3-light-grey addButtonCircular addToCompare d-block" data-img="@item.Product.Logo" data-title="@item.Product.ProductName" data-id="@item.ProductId" style="margin-top:-15px;margin-right:0px">+</a>
+                                
+                                </div><!-- End .product-cat -->
+                                <h4 class="product-title m-0 p-0" style="height:55px;margin-bottom:-5px"><a class="m-0 p-0 d-block" href="product.html">@item.Product.ProductName</a></h4><!-- End .product-title -->
+                                <div class="product-price m-0 p-0">
+                                    @item.Product.ProductPrice
+                                </div><!-- End .product-price -->
+                                <div class="m-auto m-0 p-0">
+                                    <a href="@Url.Action("RegisterCustomer","Customer")" class="btn btn-primary ">Buy</a>
+
+                                </div>
+                            </div><!-- End .product-body -->
+                            <div class="product-action">
+                                <a href="#" class="btn-product btn-cart cd-add-to-cart js-cd-add-to-cart mb-0"  data-price="@item.Product.ProductPrice"><span>add to cart</span></a>
+                            
+                            </div><!-- End .product-action -->
+                        </div><!-- End .product -->
+                    </div>
+                }
+
+            </div><!-- End .row -->
+        </div><!-- End .products -->
+    </div><!-- .End .tab-pane -->
+
+</div>
+
+<div class="cd-cart cd-cart--empty js-cd-cart">
+    <a href="#0" class="cd-cart__trigger text-replace">
+        Cart
+        <ul class="cd-cart__count">
+            <!-- cart items count -->
+            <li>0</li>
+            <li>0</li>
+        </ul> <!-- .cd-cart__count -->
+    </a>
+    <div class="cd-cart__content">
+        <div class="cd-cart__layout">
+            <header class="cd-cart__header">
+                <h2>Cart</h2>
+                <span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
+            </header>
+
+            <div class="cd-cart__body">
+                <ul>
+                    <!-- products added to the cart will be inserted here using JavaScript -->
+                </ul>
+            </div>
+            <footer class="cd-cart__footer">
+                <a href="#0" class="cd-cart__checkout">
+                    <em>
+                        Checkout - $<span>0</span>
+                        <svg class="icon icon--sm" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12" /><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 " /></g>
+                        </svg>
+                    </em>
+                </a>
+            </footer>
+        </div>
+    </div> <!-- .cd-cart__content -->
+</div> <!-- cd-cart -->
+<script src="~/Content/assets/scripts/addtocart.js"></script>
+<script src="~/Content/assets/scripts/util.js"></script>
+<script>
+
+</script>
+
+<div class="w3-container  w3-center">
+    <div class="w3-row w3-card-4 w3-grey w3-round-large w3-border comparePanle w3-margin-top">
+        <div class="w3-row">
+            <div class="w3-col l9 m8 s6 w3-margin-top">
+                <h4>Added for comparison</h4>
+            </div>
+            <div class="w3-col l3 m4 s6 w3-margin-top">
+
+                <button class="w3-btn w3-round-small w3-white w3-border notActive cmprBtn" disabled>Compare</button>
+            </div>
+        </div>
+        <div class="titleMargin w3-container comparePan">
+        </div>
+    </div>
+</div>
+<!--end of preview panel-->
+<!-- comparision popup-->
+<div id="id01" class="w3-animate-zoom w3-white w3-modal modPos">
+    <div class="w3-container">
+        <a onclick="document.getElementById('id01').style.display='none'" class="whiteFont w3-padding w3-closebtn closeBtn">×</a>
+    </div>
+    <div class="w3-row contentPop w3-margin-top">
+    </div>
+</div>
+<!--end of comparision popup-->
+<!--  warning model  -->
+<div id="WarningModal" class="w3-modal">
+    <div class="w3-modal-content warningModal">
+        <header class="w3-container w3-teal">
+            <h3><span>⚠</span>Error</h3>
+        </header>
+        <div class="w3-container">
+            <h4>Maximum of Two products are allowed for comparision</h4>
+        </div>
+        <footer class="w3-container w3-right-align">
+            <button id="warningModalClose" onclick="document.getElementById('id01').style.display='none'" class="w3-btn w3-hexagonBlue w3-margin-bottom  ">Ok</button>
+        </footer>
+    </div>
+</div>

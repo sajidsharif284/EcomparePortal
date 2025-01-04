@@ -1,0 +1,766 @@
+﻿@model EcomparePortal.Models.Product
+
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+            <script src="~/ThemeCK/ckeditor/ckeditor.js"></script>
+
+            <script src="~/ThemeCK/ckeditor/adapters/jquery.js"></script>
+            <script src="~/ThemeCK/ckeditor/styles.js"></script>
+            <script src="~/ThemeCK/ckeditor/config.js"></script>
+            <script src="~/ThemeCK/ckeditor/plugins/wsc2/plugin.js"></script>
+            <script src="~/ThemeCK/ckeditor/curvedLines.js"></script>
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon.ico">
+
+	<title>Material Bootstrap Wizard by Creative Tim</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+	<link href="~/Content/assets/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/assets/css/material-bootstrap-wizard.css" rel="stylesheet" />
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="~/Content/assets/css/demo.css" rel="stylesheet" />
+    <style>
+         #cke_FullDescription {
+        margin-right: 30px;
+    }
+        .form-control {
+            width: 300px;
+             height: 40px;
+            border: 1px solid black;
+        }
+
+       .form-control, .form-group .form-control {
+   border: 1px solid black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+    font-weight: 400;
+}
+       .form-group input[type=file] {
+     opacity: 1; 
+     position: relative; 
+     top: 0; 
+     right: 0; 
+     bottom: 0; 
+     left: 0; 
+    height: 100%;
+    z-index: 100;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!--      Wizard container        -->
+                <div class="wizard-container">
+                    <div class="card wizard-card" data-color="green" id="wizardProfile">
+                        @*<form action="" method="">*@
+                            <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                            <div class="wizard-header">
+                                <h3 class="wizard-title">
+                                    Product Add
+                                </h3>
+                               
+                            </div>
+                            <div class="wizard-navigation">
+                                <ul style="height:40px" id="mytabs ">
+                                    <li ><a class="active" href="#about"  data-toggle="tab">Product Detail</a></li>
+                                    <li><a href="#account"  data-toggle="tab">Product Benefit</a></li>
+                                    <li><a href="#address"  data-toggle="tab">Product Form</a></li>
+                                    <li><a href="#feature" data-toggle="tab">Product Feature</a></li>
+                                    <li><a href="#complete" data-toggle="tab">Complete</a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane" id="about" >
+                                    <div class="col-md-12">
+@*@using (Html.BeginForm("AddProduct", "Agent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{*@
+                                        <form id="formonedata" method="post" enctype="multipart/form-data">
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-horizontal">
+                                                <div class="row">
+                                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                                    <div class="col-md-4">
+                                                        @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-6" })
+                                                        <div class="col-md-12">
+                                                            @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                                                            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="col-md-4">
+                                                        @Html.LabelFor(model => model.ProductPrice, htmlAttributes: new { @class = "control-label col-md-6" })
+                                                        <div class="col-md-12">
+                                                            @Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })
+                                                            @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        @Html.LabelFor(model => model.SalePrice, htmlAttributes: new { @class = "control-label col-md-6" })
+                                                        <div class="col-md-12">
+                                                            @Html.EditorFor(model => model.SalePrice, new { htmlAttributes = new { @class = "form-control" } })
+                                                            @Html.ValidationMessageFor(model => model.SalePrice, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        @Html.LabelFor(model => model.SubCategoryId, "SubCategoryId", htmlAttributes: new { @class = "control-label col-md-6" })
+                                                        <div class="col-md-12">
+                                                            @Html.DropDownList("SubCategoryId", null, htmlAttributes: new { @class = "form-control" })
+                                                            @Html.ValidationMessageFor(model => model.SubCategoryId, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        @Html.LabelFor(model => model.CompanyId, "CompanyId", htmlAttributes: new { @class = "control-label col-md-6" })
+                                                        <div class="col-md-12">
+                                                            @Html.DropDownList("CompanyId", null, htmlAttributes: new { @class = "form-control" })
+                                                            @Html.ValidationMessageFor(model => model.CompanyId, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <label class="control-label col-md-6">Logo</label>
+                                                        <div class="col-md-12">
+                                                            <input type="file" class="form-control" id="image" style="width:300px" name="file" accept="image/*" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="control-label col-md-6">ClaimDocument</label>
+                                                        <div class="col-md-12">
+                                                            <input type="file" class="form-control" style="width:300px" name="ClaimDocument" accept="image/*" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="control-label col-md-6">PolicyDocument</label>
+                                                        <div class="col-md-12">
+                                                            <input type="file" class="form-control" style="width:300px" name="PolicyDocument" accept="image/*" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-6" })
+                                                        <div class="col-md-12">
+                                                            @Html.TextAreaFor(model => model.Description, 2, 5, new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header ">
+                                                            <div class="m-auto">
+                                                                Product Details
+                                                            </div>
+                                                        </div>
+                                                        <div class="container ">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <!-- Repeater Html Start -->
+                                                                    <div id="repeater">
+                                                                        <!-- Repeater Heading -->
+                                                                        <div class="repeater-heading">
+
+                                                                            <a href="javascript:void(0)" class="btn mb-0 pb-0 btn-primary pull-right repeater-add-btn" style="height:42px;width:107px;margin-right:130px">
+                                                                                Add
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="clearfix"></div>
+                                                                        <div class="form-group">
+
+                                                                            <div class="col-lg-10">
+                                                                                <input type="hidden" class="form-control" id="inputCoverage" placeholder="Coverage" data-name="Coverage">
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- Repeater Items -->
+                                                                        <div class="items mt-0 pt-0 mb-0 pb-0" data-group="test">
+                                                                            <!-- Repeater Content -->
+                                                                            <div class="item-content">
+
+
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+
+
+                                                                                        <div class="col-md-4 float-left" style="">
+                                                                                            <div class="ml-3">
+                                                                                                <label for="inputEmail" class="control-label">HeadingText</label><br />
+
+                                                                                                <input type="text" style="width:230px" class="form-control" id="HeadingText" data-name="HeadingText">
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-4 float-left  headingvalueclass" id="headingvaluediv">
+                                                                                            <div class="ml-3">
+                                                                                                <label for="inputEmail" class="control-label">HeadingValue</label><br />
+
+                                                                                                <input type="text" style="width:230px" name="send_address" class="form-control" id="HeadingValue" data-name="HeadingValue">
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="clearfix"></div><br />
+                                                                            <!-- Repeater Remove Btn -->
+                                                                            <div class="pull-right repeater-remove-btn">
+                                                                                <button class="btn btn-danger remove-btn" style="margin-right:130px">
+                                                                                    Remove
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="clearfix"></div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <!-- Repeater End -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*<div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </div>*@
+                                                    <div class="wizard-footer">
+                                                        <div class="pull-right">
+                                                            <input type='button' class='btn btn-next btn-fill btn-success btn-wd' data-section="#formone" name='next' value='Next' />
+                                                            <input type='button' class='btn btn-finish btn-fill btn-success btn-wd' name='finish' value='Finish' />
+                                                        </div>
+                                                        <div class="pull-left">
+                                                            <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </form>
+@*}*@
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="account">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form id="formtwodata" method="post">
+                                                <div class="card">
+                                                    <div class="card-header ">
+                                                        <div class="m-auto">
+                                                            Product Benefits
+                                                        </div>
+                                                    </div>
+                                                    <input type="hidden" name="Id" id="productid" value="@ViewBag.productid"/>
+                                                    <div class="container ">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <!-- Repeater Html Start -->
+                                                                <div id="repeaterforbenefits">
+                                                                    <!-- Repeater Heading -->
+                                                                    <div class="repeater-heading">
+
+                                                                        <a href="javascript:void(0)" class="btn mb-0 pb-0 btn-primary pull-right repeater-add-btn" style="height:42px;width:107px;margin-right:130px">
+                                                                            Add
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="clearfix"></div>
+                                                                    <div class="form-group">
+
+                                                                        <div class="col-lg-10">
+                                                                            <input type="hidden" class="form-control" id="inputCoverage" placeholder="Coverage" data-name="Coverage">
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- Repeater Items -->
+                                                                    <div class="items mt-0 pt-0 mb-0 pb-0" data-group="test">
+                                                                        <!-- Repeater Content -->
+                                                                        <div class="item-content">
+
+
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+
+
+                                                                                    <div class="col-md-4 float-left" style="">
+                                                                                        <div class="ml-3">
+                                                                                            <label for="inputEmail" class="control-label">HeadingText</label><br />
+
+                                                                                            <input type="text" style="width:230px" class="form-control" id="HeadingText" data-name="HeadingText">
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-4 float-left  headingvalueclass" id="headingvaluediv">
+                                                                                        <div class="ml-3">
+                                                                                            <label for="inputEmail" class="control-label">HeadingValue</label><br />
+
+                                                                                            <input type="text" style="width:230px" name="send_address" class="form-control" id="HeadingValue" data-name="HeadingValue">
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="clearfix"></div><br />
+                                                                        <!-- Repeater Remove Btn -->
+                                                                        <div class="pull-right repeater-remove-btn">
+                                                                            <button class="btn btn-danger remove-btn" style="margin-right:130px">
+                                                                                Remove
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="clearfix"></div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <!-- Repeater End -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="wizard-footer">
+                                                    <div class="pull-right">
+                                                        <input type='button' class='btn btn-next btn-fill btn-success btn-wd' data-section="#formtwo" name='next' value='Next' />
+                                                        <input type='button' class='btn btn-finish btn-fill btn-success btn-wd' name='finish' value='Finish' />
+                                                    </div>
+                                                    <div class="pull-left">
+                                                        <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                </form>
+</div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="address">
+                                    <form id="formthreedata" method="post">
+                                        <input type="hidden" name="Id" id="productidforform" value="@ViewBag.productid" />
+                                        <div class="card">
+                                            <div class="card-header ">
+                                                <div class="m-auto">
+                                                   Form Name
+                                                </div>
+                                            </div>
+                                            <div class="form-row mt-3">
+                                                <div class="col-md-6">
+                                                    <div class="position-relative form-group ml-5"><label for="exampleEmail11" class="">Title</label><br /><input name="Title" id="exampleEmail11" type="text" class="form-control"></div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="position-relative form-group ml-3">
+                                                        <label for="examplePassword11" class="">Description</label><br /><textarea name="Description"
+                                                                                                                                   class="form-control"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <br /><br />
+                                        <div class="card" id="priceRuleTable">
+                                            <div class="card-header ">
+                                                <div class="m-auto">
+                                                    Form Deatils
+                                                </div>
+                                            </div>
+                                            <div class="container mt-3 mb-3">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <!-- Repeater Html Start -->
+                                                        <div id="repeaterforform">
+                                                            <!-- Repeater Heading -->
+                                                            <div class="repeater-heading">
+
+                                                                <a href="javascript:void(0)" class="btn btn-primary pull-right repeater-add-btn" style="height:42px;width:107px;margin-right:130px">
+                                                                    Add
+                                                                </a>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                            <div class="form-group">
+
+                                                                <div class="col-lg-10">
+                                                                    <input type="hidden" class="form-control" id="inputCoverage" placeholder="Coverage" data-name="Coverage">
+                                                                </div>
+                                                            </div>
+                                                            <!-- Repeater Items -->
+                                                            <div class="items" data-group="test">
+                                                                <!-- Repeater Content -->
+                                                                <div class="item-content">
+
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+
+
+                                                                            <div class="col-md-4 float-left" style="">
+                                                                                <div class="ml-3">
+                                                                                    <label for="inputEmail" class="control-label">HeadingText</label><br />
+
+                                                                                    <input type="text" style="width:230px" class="form-control" id="HeadingText" data-name="HeadingText">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 float-left" style="">
+                                                                                <div class="ml-3">
+
+
+                                                                                    <label for="inputEmail" class="control-label">HeadingType</label><br />
+
+                                                                                    <select class="form-control  HeadingTypes" style="width:230px" id="HeadingType" data-name="HeadingType">
+                                                                                        <option>Select</option>
+                                                                                        <option value="Text">Text</option>
+                                                                                        <option value="Radio">Radio</option>
+                                                                                        <option value="Dropdown">Dropdown</option>
+                                                                                        <option value="Number">Number</option>
+                                                                                        <option value="File">File</option>
+                                                                                        <option value="DateTime">DateTime</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4 float-left  headingvalueclass" id="headingvaluediv">
+                                                                                <div class="ml-3">
+                                                                                    <label for="inputEmail" class="control-label">HeadingValue</label><br />
+
+                                                                                    <input type="text" style="width:230px" name="send_address" class="form-control" id="HeadingValue" data-name="HeadingValue" placeholder="A,B,C" pattern="[a-zA-Z]+(,\s*[a-zA-Z]+)*"><span>Value separated by comma and not end with comma</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="clearfix"></div><br />
+                                                                <!-- Repeater Remove Btn -->
+                                                                <div class="pull-right repeater-remove-btn">
+                                                                    <button class="btn btn-danger remove-btn" style="margin-right:130px">
+                                                                        Remove
+                                                                    </button>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+
+                                                        </div>
+                                                        <!-- Repeater End -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wizard-footer">
+                                            <div class="pull-right">
+                                                <input type='button' class='btn btn-next btn-fill btn-success btn-wd' data-section="#formthree" name='next' value='Next' />
+                                                <input type='button' class='btn btn-finish btn-fill btn-success btn-wd' name='finish' value='Finish' />
+                                            </div>
+                                            <div class="pull-left">
+                                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        </form>
+</div>
+                                <div class="tab-pane" id="feature">
+                                    <form id="formfourdata" method="post">
+                                        <input type="hidden" name="Id" id="productidforfeature" value="@ViewBag.productid" />
+                                        <div class="card">
+                                            <div class="card-header ">
+                                                <div class="m-auto">
+                                                    Product Feature
+                                                </div>
+                                            </div>
+                                            <div class="container ">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col-md-12 ml-1">
+                                                                <label class="control-label col-md-6" style="font-size:20px">Product Term & condition</label><br />
+                                                                <textarea class="form-control name="TermAndCondition"  col-md-11 ml-4" id="TermAndConditionDescription"></textarea>
+                                                            </div>
+
+                                                        </div>
+                                                        <!-- Repeater Html Start -->
+                                                        <div id="repeaterforfeature">
+                                                            <!-- Repeater Heading -->
+                                                            <div class="repeater-heading">
+
+                                                                <a href="javascript:void(0)" class="btn mb-0 pb-0 btn-primary pull-right repeater-add-btn" style="height:42px;width:107px;margin-right:130px">
+                                                                    Add
+                                                                </a>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                            <div class="form-group">
+
+                                                                <div class="col-lg-10">
+                                                                    <input type="hidden" class="form-control" id="inputCoverage" placeholder="Coverage" data-name="Coverage">
+                                                                </div>
+                                                            </div>
+                                                            <!-- Repeater Items -->
+                                                            <div class="items mt-0 pt-0 mb-0 pb-0" data-group="test">
+                                                                <!-- Repeater Content -->
+                                                                <div class="item-content">
+                                                                    
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+
+                                                                            <div class="col-md-4 float-left  headingvalueclass" id="headingvaluediv">
+                                                                                <div class="ml-3">
+                                                                                    <label for="inputEmail" class="control-label">Product Feature</label><br />
+
+                                                                                    <input type="text" style="width:230px" name="send_address" class="form-control" id="HeadingValue" data-name="HeadingValue">
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+
+                                                                <div class="clearfix"></div><br />
+                                                                <!-- Repeater Remove Btn -->
+                                                                <div class="pull-right repeater-remove-btn">
+                                                                    <button class="btn btn-danger remove-btn" style="margin-right:130px">
+                                                                        Remove
+                                                                    </button>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+
+                                                        </div>
+                                                        <!-- Repeater End -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wizard-footer">
+                                            <div class="pull-right">
+                                                <input type='button' class='btn btn-next btn-fill btn-success btn-wd' data-section="#formfour" name='next' value='Next' />
+                                                <input type='button' class='btn btn-finish btn-fill btn-success btn-wd' name='finish' value='Finish' />
+                                            </div>
+                                            <div class="pull-left">
+                                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane" id="complete">
+                                    
+                                       
+                                        <div class="card">
+                                            <div class="card-header ">
+                                                <div class="m-auto">
+                                                    Product Data Complete
+                                                </div>
+                                            </div>
+                                           <div class="col-md-12">
+                                               <div class="col-md-4 offset-md-3">
+                                                   <img src="~/Content/assets/images/animation_500_kt85dvbg.gif"/>
+                                               </div>
+                                           </div>
+                                        </div>
+                                        <div class="wizard-footer">
+                                            <div class="pull-right">
+                                                <input type='button' class='btn btn-next btn-fill btn-success btn-wd' data-section="#formfour" name='next' value='Next' />
+                                                <a href="@Url.Action("Dashboard","Agent")"><input type='button' class='btn btn-finish btn-fill btn-success btn-wd' name='finish' value='Finish' /></a>
+                                            </div>
+                                            <div class="pull-left">
+                                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                   
+                                </div>
+                            </div>
+                            @*<div class="wizard-footer">
+                                <div class="pull-right">
+                                    <input type='button' class='btn btn-next btn-fill btn-success btn-wd' data-section="#formone" name='next' value='Next' />
+                                    <input type='button' class='btn btn-finish btn-fill btn-success btn-wd' name='finish' value='Finish' />
+                                </div>
+                                <div class="pull-left">
+                                    <input type='buttoFn' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>*@
+                        @*</form>*@
+                    </div>
+                </div> <!-- wizard container -->
+            </div>
+        </div><!-- end row -->
+    </div>
+    <script src="~/Content/assets/scripts/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/scripts/jquery.bootstrap.js" type="text/javascript"></script>
+    <!--  Plugin for the Wizard -->
+    <script src="~/Content/assets/scripts/material-bootstrap-wizard.js"></script>
+    <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+    <script src="~/Content/assets/scripts/jquery.validate.min.js"></script>
+</body>
+	
+   
+
+</html>
+
+
+
+<script src="~/Content/assets/scripts/repeater.js" type="text/javascript"></script>
+<script>
+    CKEDITOR.replace("TermAndConditionDescription");
+   
+</script>
+<script>
+    
+    
+        /* Create Repeater */
+        $("#repeater").createRepeater({
+            showFirstItemToDefault: true,
+        });
+        $("#repeaterforbenefits").createRepeater({
+            showFirstItemToDefault: true,
+        });
+        $("#repeaterforform").createRepeater({
+            showFirstItemToDefault: true,
+        });
+        $("#repeaterforfeature").createRepeater({
+            showFirstItemToDefault: true,
+        });
+</script>
+<script>
+   $(document).ready(function () {
+
+       $('.btn-next').click(function (e) {
+           debugger;
+           var section = $(this).attr('data-section');
+         console.log(section)
+         if (section == '#formone') {
+             var formData = new FormData($('#formonedata')[0]);
+             //var formData = $('#formonedata').serialize();
+
+
+                  $.ajax({
+
+                      url: '@Url.Action("AddProduct", "Product")',
+                      type: "POST",
+                      processData: false,
+                      contentType: false,
+                      data:formData,
+                      encode: true,
+                      success: function (data) {
+                          debugger;
+                         var a= $("#productid").val(data);
+                         var next = $('#mytabs li.active').next()
+                         next.length ?
+                           next.find('a').click() :
+                           $('#mytabs li a')[0].click();
+                             //$('.myspinner').addClass('d-none');
+                            // $('.form-section').addClass('d-none');
+
+                          }
+
+                  });
+                  e.preventDefault();
+         }
+           else if (section == '#formtwo') {
+               var formData = new FormData($('#formtwodata')[0]);
+               //var formData = $('#formonedata').serialize();
+               var productid = $('#productid').val();
+               //formData.append(productid);
+
+               $.ajax({
+
+                   url: '@Url.Action("AddBenefits", "Product")',
+                   type: "POST",
+                   processData: false,
+                   contentType: false,
+                   data: formData,
+                   encode: true,
+                   success: function (data) {
+                       debugger;
+                       var a = $("#productidforform").val(data);
+                       var next = $('#mytabs li.active').next()
+                       next.length ?
+                         next.find('a').click() :
+                         $('#mytabs li a')[0].click();
+
+
+                   }
+
+               });
+               e.preventDefault();
+           }
+           else if (section == '#formthree') {
+               var formData = new FormData($('#formthreedata')[0]);
+               //var formData = $('#formonedata').serialize();
+               var productid = $('#productidforform').val();
+               //formData.append(productid);
+
+               $.ajax({
+
+                   url: '@Url.Action("AddCustomerInputDetails", "Product")',
+                   type: "POST",
+                   processData: false,
+                   contentType: false,
+                   data: formData,
+                   encode: true,
+                   success: function (data) {
+                      
+                       var a = $("#productidforfeature").val(data);
+                       var next = $('#mytabs li.active').next()
+                       next.length ?
+                         next.find('a').click() :
+                         $('#mytabs li a')[0].click();
+                       //$('.myspinner').addClass('d-none');
+                       // $('.form-section').addClass('d-none');
+
+                   }
+
+               });
+               e.preventDefault();
+           }
+           else if (section == '#formfour') {
+               var formData = new FormData($('#formfourdata')[0]);
+               var TermAndCondition = CKEDITOR.instances['TermAndConditionDescription'].getData()
+               formData.append("TermAndCondition", TermAndCondition);
+              // var formData = $('#formfourdata').serialize();
+               var productid = $('#productidforfeature').val();
+               //formData.append(productid);
+
+               $.ajax({
+
+                   url: '@Url.Action("AddFeature", "Product")',
+                   type: "POST",
+                   processData: false,
+                   contentType: false,
+                   data: formData,
+                   encode: true,
+                   success: function () {
+                       var next = $('#mytabs li.active').next()
+                       next.length ?
+                         next.find('a').click() :
+                         $('#mytabs li a')[0].click();
+                       //$('.myspinner').addClass('d-none');
+                       // $('.form-section').addClass('d-none');
+
+                   }
+
+               });
+               e.preventDefault();
+           }
+       });
+   });
+           </script>

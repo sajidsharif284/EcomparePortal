@@ -1,0 +1,49 @@
+﻿@model EcomparePortal.Models.ProductTermAndCondition
+
+@{
+    ViewBag.Title = "AddTermAndCondition";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <script src="~/ThemeCK/ckeditor/ckeditor.js"></script>
+    
+    <script src="~/ThemeCK/ckeditor/adapters/jquery.js"></script>
+    <script src="~/ThemeCK/ckeditor/styles.js"></script>
+    <script src="~/ThemeCK/ckeditor/config.js"></script>
+    <script src="~/ThemeCK/ckeditor/plugins/colorbutton/plugin.js"></script>
+    <script src="~/ThemeCK/ckeditor/curvedLines.js"></script>
+}
+<style>
+    #cke_FullDescription {
+        margin-right: 30px;
+    }
+</style>
+<h2>AddTermAndCondition</h2>
+
+@using (Html.BeginForm("AddTermAndCondition", "Admin",  FormMethod.Post))
+{
+   
+    @Html.Hidden("Id",(string)ViewBag.id)
+    <div class="form-horizontal">
+
+       
+            @Html.LabelFor(model => model.TermAndCondition, htmlAttributes: new { @class = "control-label col-md-2" })<br /><br />
+        @Html.TextAreaFor(model => model.TermAndCondition, new { @class = "form-control  col-md-11 ml-4", @id= "TermAndConditionDescription" } )
+        @Html.ValidationMessageFor(model => model.TermAndCondition, "", new { @class = "text-danger" })
+                @*<textarea class="form-control col-md-11 ml-4 " id="TermAndCondition" name="termcondition"></textarea>*@
+        @*<input type="text" class="form-control col-md-11 ml-4 " id="TermAndConditionDescription" name="TermAndCondition"/>*@
+       
+                <br>
+
+
+      
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+<script>
+    CKEDITOR.replace("TermAndConditionDescription");
+    CKEDITOR.config.extraPlugins("colorbutton");
+</script>

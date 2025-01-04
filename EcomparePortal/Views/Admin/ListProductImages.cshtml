@@ -1,0 +1,199 @@
+﻿@model IEnumerable<EcomparePortal.Models.ProductImages>
+
+@{
+    ViewBag.Title = "ListProductImages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/Content/assets/css/ProductDetail.css" />
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product Detail</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card mt-0 mb-5" style="background:white">
+            <div class="container-fliud">
+                <div class="wrapper row">
+
+                    <div class="preview col-md-6">
+
+                        <div class="preview-pic tab-content">
+
+                            @{
+                                int x = 0;
+                                foreach (var item in Model)
+                                {
+                                    if (x == 0)
+                                    {
+                                        x++;
+                                        <div class="tab-pane active" id="pic-@item.Id"><img src="@item.ImageURL" style="height:300px"/></div>
+                                    }
+                                    else
+                                    {
+                                        <div class="tab-pane" id="pic-@item.Id"><img src="@item.ImageURL" style="height:300px"/></div>
+
+                                    }
+                                }
+                            }
+                        </div>
+                        <ul class="preview-thumbnail nav nav-tabs">
+                            @{
+                                int y = 0;
+                                foreach (var item in Model)
+                                {
+                                    if (y == 0)
+                                    {
+                                        y++;
+                                        <li class="active">
+                                            <a data-target="#pic-@item.Id" data-toggle="tab">
+                                                <img src="@item.ImageURL" style="height:50px"/>
+                                            </a>
+                                        </li>
+                                    }
+
+                                    else
+                                    {
+                                         <li class="">
+                                        <a data-target="#pic-@item.Id" data-toggle="tab">
+                                            <img src="@item.ImageURL" style="height:50px"/></a></li >
+                                        }
+                                    }
+                                }
+                        </ul>
+                        <div>
+                            <h3><b>Description</b></h3>
+                            @{
+                                int j = 0;
+                                foreach (var item in Model)
+                                {
+                                    if (j == 0)
+                                    {
+                                        j++;
+                                        string p = item.Product.Description;
+
+                                        if (p.Length > 250)
+                                        {
+                                            p = p.Substring(0, 250);
+                                            <span class="m-0 p-0" style="text-align:justify"> @p <b class="readmore" style="color:blue;cursor:pointer" data-description="@item.Product.Description">Read More</b></span>
+                                        }
+                                        else
+                                        {
+                                            <span class="m-0 p-0" style="text-align:justify"> @p</span>
+                                        }
+
+
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                     
+                    <div class="details col-md-6">
+                        <h3 class="product-title">
+                            @{
+                                int i = 0;
+                                foreach (var item in Model)
+                                {
+                                    if (i == 0)
+                                    {
+                                        i++;
+                                       @item.Product.ProductName;
+
+
+                                    }
+                                    
+                                }
+                            }
+                        </h3>
+                        <div class="rating">
+                            <div class="stars">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <span class="review-no">41 reviews</span>
+                        </div>
+                        <p class="product-description">
+                            
+                        </p>
+                        <h4 class="price">current price: <span>
+                            @{
+                                int k = 0;
+                                foreach (var item in Model)
+                                {
+                                    if (k == 0)
+                                    {
+                                        k++;
+                                       @item.Product.ProductPrice;
+
+                                    }
+                                }
+                            }
+                            </span></h4>
+                        <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+                       
+                        <div class="action">
+                            <button class="add-to-cart btn btn-default" type="button">add to cart</button>
+                            <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+    $(document).ready(function()
+    {
+
+        $(document).on('click', ".readmore", function () {
+            debugger;
+            $('#productdescription').html($(this).attr('data-description'));
+            $('#description').modal('show');
+        });
+    })
+</script>
+<div class="modal  fade in" id="description" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header bg-blue">
+                <h4 class="modal-title ">Description</h4>
+            </div>
+            <div class="modal-body text-center">
+                <p class="text-muted" style="color:#385370" id="productdescription"> </p>
+                
+
+            </div>
+            <div class="modal-footer">
+               
+                <br />
+                    <br />
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="OnClientClose()">Close</button>
+                   
+           
+        </div>
+    </div>
+
+</div>
+</div>
+<script>
+    function OnClientClose() {
+        document.location.reload();
+    }
+</script>

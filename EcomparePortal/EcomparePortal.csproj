@@ -1,0 +1,2259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3B7B3D9-8F13-42F1-83BC-BEBC680C2C1D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EcomparePortal</RootNamespace>
+    <AssemblyName>EcomparePortal</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Class\Mapping.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105180616258_init.cs" />
+    <Compile Include="Migrations\202105180616258_init.Designer.cs">
+      <DependentUpon>202105180616258_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105180730077_initial.cs" />
+    <Compile Include="Migrations\202105180730077_initial.Designer.cs">
+      <DependentUpon>202105180730077_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105181017510_addcategoryandsubcategorytable.cs" />
+    <Compile Include="Migrations\202105181017510_addcategoryandsubcategorytable.Designer.cs">
+      <DependentUpon>202105181017510_addcategoryandsubcategorytable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105210610380_addcompanyandproductandproductimagestable.cs" />
+    <Compile Include="Migrations\202105210610380_addcompanyandproductandproductimagestable.Designer.cs">
+      <DependentUpon>202105210610380_addcompanyandproductandproductimagestable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105210958275_removecompanynamefromproducttable.cs" />
+    <Compile Include="Migrations\202105210958275_removecompanynamefromproducttable.Designer.cs">
+      <DependentUpon>202105210958275_removecompanynamefromproducttable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105220838040_adddescriptioninproducttable.cs" />
+    <Compile Include="Migrations\202105220838040_adddescriptioninproducttable.Designer.cs">
+      <DependentUpon>202105220838040_adddescriptioninproducttable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107261207230_addcustomerprofiletable.cs" />
+    <Compile Include="Migrations\202107261207230_addcustomerprofiletable.Designer.cs">
+      <DependentUpon>202107261207230_addcustomerprofiletable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107270420344_addemailincustomerprofile.cs" />
+    <Compile Include="Migrations\202107270420344_addemailincustomerprofile.Designer.cs">
+      <DependentUpon>202107270420344_addemailincustomerprofile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107310532056_addproductmaindetails.cs" />
+    <Compile Include="Migrations\202107310532056_addproductmaindetails.Designer.cs">
+      <DependentUpon>202107310532056_addproductmaindetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108040419480_addregisterfromincustomertable.cs" />
+    <Compile Include="Migrations\202108040419480_addregisterfromincustomertable.Designer.cs">
+      <DependentUpon>202108040419480_addregisterfromincustomertable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108040739139_addproductbenefitsandfeatures.cs" />
+    <Compile Include="Migrations\202108040739139_addproductbenefitsandfeatures.Designer.cs">
+      <DependentUpon>202108040739139_addproductbenefitsandfeatures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108050641555_addpolicyandclaimdocuments.cs" />
+    <Compile Include="Migrations\202108050641555_addpolicyandclaimdocuments.Designer.cs">
+      <DependentUpon>202108050641555_addpolicyandclaimdocuments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108200435052_addtermandconditiontable.cs" />
+    <Compile Include="Migrations\202108200435052_addtermandconditiontable.Designer.cs">
+      <DependentUpon>202108200435052_addtermandconditiontable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108200854029_addcustomerdynamicinputdetailstable.cs" />
+    <Compile Include="Migrations\202108200854029_addcustomerdynamicinputdetailstable.Designer.cs">
+      <DependentUpon>202108200854029_addcustomerdynamicinputdetailstable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108200913390_addtitleincustomerinputtable.cs" />
+    <Compile Include="Migrations\202108200913390_addtitleincustomerinputtable.Designer.cs">
+      <DependentUpon>202108200913390_addtitleincustomerinputtable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108210742543_addcitytable.cs" />
+    <Compile Include="Migrations\202108210742543_addcitytable.Designer.cs">
+      <DependentUpon>202108210742543_addcitytable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108230511378_addforeignkeyindynamicinputdeatilsintable.cs" />
+    <Compile Include="Migrations\202108230511378_addforeignkeyindynamicinputdeatilsintable.Designer.cs">
+      <DependentUpon>202108230511378_addforeignkeyindynamicinputdeatilsintable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260544302_addcustomerformandpaymentinfotable.cs" />
+    <Compile Include="Migrations\202108260544302_addcustomerformandpaymentinfotable.Designer.cs">
+      <DependentUpon>202108260544302_addcustomerformandpaymentinfotable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260607555_addcusomeridandproductidincustomerformtable.cs" />
+    <Compile Include="Migrations\202108260607555_addcusomeridandproductidincustomerformtable.Designer.cs">
+      <DependentUpon>202108260607555_addcusomeridandproductidincustomerformtable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260758505_deletemodel.cs" />
+    <Compile Include="Migrations\202108260758505_deletemodel.Designer.cs">
+      <DependentUpon>202108260758505_deletemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260801166_addcustomersaledatatable.cs" />
+    <Compile Include="Migrations\202108260801166_addcustomersaledatatable.Designer.cs">
+      <DependentUpon>202108260801166_addcustomersaledatatable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260854332_deletedatetimeinpaymentinfo.cs" />
+    <Compile Include="Migrations\202108260854332_deletedatetimeinpaymentinfo.Designer.cs">
+      <DependentUpon>202108260854332_deletedatetimeinpaymentinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260856186_adddatetimeinpaymentinfo.cs" />
+    <Compile Include="Migrations\202108260856186_adddatetimeinpaymentinfo.Designer.cs">
+      <DependentUpon>202108260856186_adddatetimeinpaymentinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108261035168_adddremainingamountinpaymentinfotable.cs" />
+    <Compile Include="Migrations\202108261035168_adddremainingamountinpaymentinfotable.Designer.cs">
+      <DependentUpon>202108261035168_adddremainingamountinpaymentinfotable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108270407055_deleteamountpaidinpaymentinfo.cs" />
+    <Compile Include="Migrations\202108270407055_deleteamountpaidinpaymentinfo.Designer.cs">
+      <DependentUpon>202108270407055_deleteamountpaidinpaymentinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108270408311_addamountpaidinpaymentinfo.cs" />
+    <Compile Include="Migrations\202108270408311_addamountpaidinpaymentinfo.Designer.cs">
+      <DependentUpon>202108270408311_addamountpaidinpaymentinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108270438297_addinstallmentplanpaymentinfo.cs" />
+    <Compile Include="Migrations\202108270438297_addinstallmentplanpaymentinfo.Designer.cs">
+      <DependentUpon>202108270438297_addinstallmentplanpaymentinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108270614161_addsatrtandexpirydatepaymentinfo.cs" />
+    <Compile Include="Migrations\202108270614161_addsatrtandexpirydatepaymentinfo.Designer.cs">
+      <DependentUpon>202108270614161_addsatrtandexpirydatepaymentinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108310659149_addagenntrole.cs" />
+    <Compile Include="Migrations\202108310659149_addagenntrole.Designer.cs">
+      <DependentUpon>202108310659149_addagenntrole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108310847241_addcompanyNameinaspnetusers.cs" />
+    <Compile Include="Migrations\202108310847241_addcompanyNameinaspnetusers.Designer.cs">
+      <DependentUpon>202108310847241_addcompanyNameinaspnetusers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109010442563_addwebdocandcompanyamountinpaymentinfo.cs" />
+    <Compile Include="Migrations\202109010442563_addwebdocandcompanyamountinpaymentinfo.Designer.cs">
+      <DependentUpon>202109010442563_addwebdocandcompanyamountinpaymentinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109010447480_deletecompanyamountinpaymentinfo.cs" />
+    <Compile Include="Migrations\202109010447480_deletecompanyamountinpaymentinfo.Designer.cs">
+      <DependentUpon>202109010447480_deletecompanyamountinpaymentinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109010448481_addcompanyamountinpaymentinfo.cs" />
+    <Compile Include="Migrations\202109010448481_addcompanyamountinpaymentinfo.Designer.cs">
+      <DependentUpon>202109010448481_addcompanyamountinpaymentinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109010707148_addbankchargesinpaymentinfo.cs" />
+    <Compile Include="Migrations\202109010707148_addbankchargesinpaymentinfo.Designer.cs">
+      <DependentUpon>202109010707148_addbankchargesinpaymentinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109290907090_addcompanycartables.cs" />
+    <Compile Include="Migrations\202109290907090_addcompanycartables.Designer.cs">
+      <DependentUpon>202109290907090_addcompanycartables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110090743301_updatecompany.cs" />
+    <Compile Include="Migrations\202110090743301_updatecompany.Designer.cs">
+      <DependentUpon>202110090743301_updatecompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110120806228_addsalepriceinproducts.cs" />
+    <Compile Include="Migrations\202110120806228_addsalepriceinproducts.Designer.cs">
+      <DependentUpon>202110120806228_addsalepriceinproducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110221023300_addioscolorcodeincompanytable.cs" />
+    <Compile Include="Migrations\202110221023300_addioscolorcodeincompanytable.Designer.cs">
+      <DependentUpon>202110221023300_addioscolorcodeincompanytable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110221112265_removeioscolorcode.cs" />
+    <Compile Include="Migrations\202110221112265_removeioscolorcode.Designer.cs">
+      <DependentUpon>202110221112265_removeioscolorcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110251105430_addclaimsdynamicinputs.cs" />
+    <Compile Include="Migrations\202110251105430_addclaimsdynamicinputs.Designer.cs">
+      <DependentUpon>202110251105430_addclaimsdynamicinputs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110260518074_addclaimraisingtable.cs" />
+    <Compile Include="Migrations\202110260518074_addclaimraisingtable.Designer.cs">
+      <DependentUpon>202110260518074_addclaimraisingtable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\GeneralModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\UserRole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\compareproduct.css" />
+    <Content Include="Content\assets\css\demo.css" />
+    <Content Include="Content\assets\css\jquery-ui.min.css" />
+    <Content Include="Content\assets\css\Login.css" />
+    <Content Include="Content\assets\css\material-bootstrap-wizard.css" />
+    <Content Include="Content\assets\css\opensans-font.css" />
+    <Content Include="Content\assets\css\ProductDetail.css" />
+    <Content Include="Content\assets\css\Register.css" />
+    <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\css\StyleSheet1.css" />
+    <Content Include="Content\assets\fonts\fa-solid-900.svg" />
+    <Content Include="Content\assets\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="Content\assets\images\animation_500_kt85dvbg.gif" />
+    <Content Include="Content\assets\images\avatars\1.jpg" />
+    <Content Include="Content\assets\images\avatars\10.jpg" />
+    <Content Include="Content\assets\images\avatars\11.jpg" />
+    <Content Include="Content\assets\images\avatars\12.jpg" />
+    <Content Include="Content\assets\images\avatars\2.jpg" />
+    <Content Include="Content\assets\images\avatars\3.jpg" />
+    <Content Include="Content\assets\images\avatars\4.jpg" />
+    <Content Include="Content\assets\images\avatars\5.jpg" />
+    <Content Include="Content\assets\images\avatars\8.jpg" />
+    <Content Include="Content\assets\images\avatars\9.jpg" />
+    <Content Include="Content\assets\images\cd-icon-arrow-next.svg" />
+    <Content Include="Content\assets\images\cd-icon-select.svg" />
+    <Content Include="Content\assets\images\cd-icons-cart-close.svg" />
+    <Content Include="Content\assets\images\delete.png" />
+    <Content Include="Content\assets\images\EC.png" />
+    <Content Include="Content\assets\images\ecomparelogo.png" />
+    <Content Include="Content\assets\images\edit.png" />
+    <Content Include="Content\assets\images\logo-inverse.png" />
+    <Content Include="Content\assets\images\logo.png" />
+    <Content Include="Content\assets\images\product-preview.png" />
+    <Content Include="Content\assets\scripts\addtocart.js" />
+    <Content Include="Content\assets\scripts\bootstrap.min.js" />
+    <Content Include="Content\assets\scripts\compareproduct.js" />
+    <Content Include="Content\assets\scripts\jquery-2.2.4.min.js" />
+    <Content Include="Content\assets\scripts\jquery-3.3.1.min.js" />
+    <Content Include="Content\assets\scripts\jquery-ui.min.js" />
+    <Content Include="Content\assets\scripts\jquery.bootstrap.js" />
+    <Content Include="Content\assets\scripts\jquery.steps.js" />
+    <Content Include="Content\assets\scripts\jquery.validate.min.js" />
+    <Content Include="Content\assets\scripts\main.js" />
+    <Content Include="Content\assets\scripts\material-bootstrap-wizard.js" />
+    <Content Include="Content\assets\scripts\repeater.js" />
+    <Content Include="Content\assets\scripts\util.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\subtheme\assets\css\bootstrap.min.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-10.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-11.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-12.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-13.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-14.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-15.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-16.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-17.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-18.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-19.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-2.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-20.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-21.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-22.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-23.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-24.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-3.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-4.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-5.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-6.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-7.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-8.css" />
+    <Content Include="Content\subtheme\assets\css\demos\demo-9.css" />
+    <Content Include="Content\subtheme\assets\css\main.min.css" />
+    <Content Include="Content\subtheme\assets\css\plugins\jquery.countdown.css" />
+    <Content Include="Content\subtheme\assets\css\plugins\magnific-popup\magnific-popup.css" />
+    <Content Include="Content\subtheme\assets\css\plugins\nouislider\nouislider.css" />
+    <Content Include="Content\subtheme\assets\css\plugins\owl-carousel\owl.carousel.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-10.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-13.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-14.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-17.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-19.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-2.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-20.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-21.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-22.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-23.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-24.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-3.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-4.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-5.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-6.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-7.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-8.css" />
+    <Content Include="Content\subtheme\assets\css\skins\skin-demo-9.css" />
+    <Content Include="Content\subtheme\assets\css\style.css" />
+    <Content Include="Content\subtheme\assets\fonts\icon51c1.svg" />
+    <Content Include="Content\subtheme\assets\fonts\molla0ab2.svg" />
+    <Content Include="Content\subtheme\assets\images\about-header-bg.jpg" />
+    <Content Include="Content\subtheme\assets\images\about\about-2\img-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\about\about-2\signature.png" />
+    <Content Include="Content\subtheme\assets\images\about\img-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\about\img-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\bg-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\bg-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\cta\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\cta\bg-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\cta\bg-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\cta\bg-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\cta\bg-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\cta\bg-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\cta\bg-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\error-bg.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\login-bg.jpg" />
+    <Content Include="Content\subtheme\assets\images\backgrounds\soon-bg.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\3cols\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\3cols\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\3cols\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\3cols\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\3cols\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\3cols\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\banner-fullwidth.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\grid\3cols\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\grid\3cols\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\grid\3cols\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\grid\4cols\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\grid\4cols\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\grid\4cols\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\grid\4cols\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\home\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\home\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\home\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\home\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\home\intro\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\banners\home\intro\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\3cols\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\3cols\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\3cols\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\4cols\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\4cols\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\4cols\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\4cols\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\comments\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\comments\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\comments\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\2cols\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\2cols\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\2cols\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\2cols\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\2cols\post-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\2cols\post-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\3cols\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\3cols\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\3cols\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\3cols\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\3cols\post-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\3cols\post-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\3cols\post-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\3cols\post-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\3cols\post-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\4cols\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\4cols\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\4cols\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\4cols\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\4cols\post-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\4cols\post-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\4cols\post-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\grid\4cols\post-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\home\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\home\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\home\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\listing\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\listing\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\listing\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\listing\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\listing\post-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\listing\post-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\grid\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\grid\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\grid\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\grid\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\grid\post-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\grid\post-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\grid\post-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\grid\post-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\grid\post-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\masonry\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\masonry\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\masonry\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\masonry\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\masonry\post-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\masonry\post-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\masonry\post-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\masonry\post-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\mask\masonry\post-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\2cols\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\2cols\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\2cols\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\2cols\post-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\2cols\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\2cols\post-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\2cols\post-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\3cols\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\3cols\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\3cols\post-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\3cols\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\3cols\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\3cols\post-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\3cols\post-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\3cols\post-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\3cols\post-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\3cols\post-9-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\3cols\post-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-11.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-12.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\4cols\post-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\with-sidebar\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\with-sidebar\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\with-sidebar\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\with-sidebar\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\with-sidebar\post-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\with-sidebar\post-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\with-sidebar\post-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\with-sidebar\post-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\masonry\with-sidebar\post-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\post-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\sidebar\banner.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\sidebar\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\sidebar\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\sidebar\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\sidebar\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\author.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\fullwidth-sidebar\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\fullwidth-sidebar\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\fullwidth-sidebar\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\fullwidth-sidebar\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\fullwidth-sidebar\5.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\fullwidth\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\fullwidth\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\blog\single\fullwidth\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\brands\1.png" />
+    <Content Include="Content\subtheme\assets\images\brands\2.png" />
+    <Content Include="Content\subtheme\assets\images\brands\3.png" />
+    <Content Include="Content\subtheme\assets\images\brands\4.png" />
+    <Content Include="Content\subtheme\assets\images\brands\5.png" />
+    <Content Include="Content\subtheme\assets\images\brands\6.png" />
+    <Content Include="Content\subtheme\assets\images\brands\7.png" />
+    <Content Include="Content\subtheme\assets\images\brands\8.png" />
+    <Content Include="Content\subtheme\assets\images\brands\9.png" />
+    <Content Include="Content\subtheme\assets\images\category\3cols\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\3cols\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\3cols\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\4cols\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\4cols\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\4cols\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\4cols\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\boxed\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\boxed\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\boxed\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\boxed\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\boxed\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\boxed\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\boxed\banner-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\boxed\banner-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\fullwidth-page\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\fullwidth-page\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\fullwidth-page\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\fullwidth-page\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\fullwidth-page\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\fullwidth-page\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\fullwidth-page\banner-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\fullwidth-page\banner-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\fullwidth\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\fullwidth\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\fullwidth\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\grid2\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\grid2\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\grid2\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\grid\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\grid\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\grid\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\category\grid\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\contact-header-bg.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos-img\elements.png" />
+    <Content Include="Content\subtheme\assets\images\demos-img\header_splash.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos-img\lazy.png" />
+    <Content Include="Content\subtheme\assets\images\demos-img\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos-img\support_bg.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\banners\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\banners\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\banners\banner-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\bg-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\blog\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-11.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-12.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-13.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-14.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\slider\slide-1-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\slider\slide-2-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\slider\slide-3-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-10\slider\slide-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-11.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-12.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-11\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\banners\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\banners\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\banners\banner-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-12\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\banners\banner-5.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\banners\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\banners\banner-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\banners\banner-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\blog\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\cat-page\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\cat-page\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\cat-page\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\cat-page\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\cat-page\5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\cat-page\6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\cats\cat-page\7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\menu\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\menu\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\menu\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\menu\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\menu\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\menu\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-11.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-12.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-13.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-14.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-15.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-16.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-17.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-18.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-19.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-20.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\slider\slide-1.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-13\slider\slide-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-1.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-11.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-12.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-3.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-bg-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-bg-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\banners\banner-bg-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\deals\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\deals\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-11.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-12.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-13.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-14.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-15.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-16.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-17.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-18.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-19.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-20.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-21.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\small\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\small\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\small\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\small\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\products\small\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\slider\slide-1-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\slider\slide-2-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\slider\slide-3-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-14\slider\slide-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\blog\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-10-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-7-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-9-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-15\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\instagram\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\instagram\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\instagram\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\instagram\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\instagram\5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-10-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-7-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-9-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-16\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\instagram\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\instagram\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\instagram\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\instagram\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\instagram\5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-7-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-9-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-17\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\banners\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\bg-newsletter.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\instagram\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\instagram\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\instagram\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\instagram\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\instagram\5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-7-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-9-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\small\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\small\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\small\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\products\small\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-18\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-1-title.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-10-title.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-2-title.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-3-title.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-4-title.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-5-title.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-6-title.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-8-title.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-9-title.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\banners\banner-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\bg-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\blog\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\menu\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\menu\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-11.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-12.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-13.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-14.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-15.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-16.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-19\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\banners\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\banners\banner-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\banners\banner-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\blog\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-11.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-12.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-14.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-big-1-bg.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-big-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-20\products\product-big-2-bg.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\banner\accessories.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\banner\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\banner\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\banner\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\banner\footware.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\banner\mens.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\banner\womens.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\bestSellers\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\bestSellers\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\bestSellers\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\bestSellers\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\bestSellers\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\bestSellers\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\bestSellers\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\bestSellers\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\chooseStyle\background.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\chooseStyle\inspirationback.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\chooseStyle\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\chooseStyle\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\chooseStyle\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\instagramStore\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\instagramStore\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\instagramStore\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\instagramStore\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\instagramStore\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\instagramStore\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\instagramStore\banner-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\newArrivals\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\newArrivals\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\newArrivals\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\newArrivals\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\newArrivals\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\newArrivals\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\newArrivals\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\newArrivals\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\newArrivals\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\newArrivals\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\newsLetter\banner.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\notification-back.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\slider\slide-1.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-21\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\bannerad\background.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\banner\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\banner\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\featured\background.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\featured\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\featured\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\featured\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\featured\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\featured\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\featured\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\featured\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\newsLetter\background.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\post\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\post\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\post\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\slider\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\slider\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\slider\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-22\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\instagram\img-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\instagram\img-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\instagram\img-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\instagram\img-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\instagram\img-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-men\banner.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-men\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-men\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-men\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-men\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-men\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-men\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-men\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-men\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-men\product-color-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-men\product-color-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-women\banner.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-women\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-women\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-women\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-women\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-women\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-women\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-women\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\new-women\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\slider\slide.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-5-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-color-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-23\tranding\product-color-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\banners\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\banners\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\banners\banner-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\banners\banner-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\banners\percent.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-5-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-6-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\best-sellers\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\blog\blog-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\blog\blog-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\blog\blog-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\brands\1.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\brands\2.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\brands\3.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\brands\4.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\brands\5.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\brands\6.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\featured-products\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\featured-products\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\featured-products\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\featured-products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\featured-products\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\featured-products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\featured-products\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\featured-products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\featured-products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\instagram\back-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\instagram\back-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\instagram\back-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\instagram\back-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\instagram\back-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\slider\back-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\slider\back-2.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-24\video-banner\banner.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\banners\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\deal\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-10-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-10-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-11-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-11-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-12-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-12-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-13-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-13-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-14-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-14-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-15-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-15-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-16-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-16-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-5-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-6-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-7-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-7-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-8-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-9-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\products\product-9-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-2\slider\slide-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\bg-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\deal\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-11.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-12.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-13.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-14.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-15.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\slider\slide-1-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\slider\slide-2-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-3\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\banners\banner-1.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\banners\banner-3.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\bg-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\camera.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\cats\1.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\cats\2.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\cats\3.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\cats\4.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\cats\5.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\cats\6.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\deal\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\deal\bg-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-11.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-12-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-12.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-13.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-14.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-15.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-16.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-17.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\slider\slide-1.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-4\slider\slide-2.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\bg-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\instagram\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\instagram\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\instagram\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\instagram\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\instagram\5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\instagram\6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\instagram\7.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\instagram\8.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\instagram\9.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-10-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-10-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-11-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-11-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-12-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-12-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-13.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-14.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-5-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-6-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-7-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-7-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-8-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-9-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\products\product-9-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-5\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\deal\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\deal\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\deal\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-1-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-1-3-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-1-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-10-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-10-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-10-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-10-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-11-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-11-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-12-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-12-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-4-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-4-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-5-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-6-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-7-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-7-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-7-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-7-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-8-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-9-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\products\product-9-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-6\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\banners\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\blog\post-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\blog\post-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\blog\post-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\blog\post-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-10-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-10-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-11-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-11-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-12-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-12-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-13-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-13-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-14-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-14-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-15-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-15-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-5-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-6-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-7-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-7-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-8-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-9-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-7\products\product-9-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\banners\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\banners\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\instagram\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\instagram\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\instagram\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\instagram\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\instagram\5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\instagram\6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-1-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-1-3-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-1-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-10-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-10-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-10-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-10-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-11-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-11-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-12-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-12-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-4-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-4-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-5-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-6-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-7-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-7-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-7-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-7-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-8-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-9-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\products\product-9-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\slider\img-1.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\slider\img-2.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-8\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\banners\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\banners\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\banners\banner-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\banners\banner-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\banners\banner-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\banners\banner-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\instagram\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\instagram\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\instagram\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\instagram\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\instagram\5.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\instagram\6.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\logo.png" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-1-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-1-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-1-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-1-3-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-1-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-10-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-10-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-10-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-10-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-2-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-2-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-3-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-4-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-4-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-4-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-4-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-5-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-5-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-6-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-6-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-7-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-7-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-8-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-8-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-9-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\products\product-9-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\slider\slide-1-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\slider\slide-2-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\slider\slide-3-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\demos\demo-9\slider\slide-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\elements.png" />
+    <Content Include="Content\subtheme\assets\images\icons\apple-touch-icon.png" />
+    <Content Include="Content\subtheme\assets\images\icons\browserconfig.xml" />
+    <Content Include="Content\subtheme\assets\images\icons\favicon-16x16.png" />
+    <Content Include="Content\subtheme\assets\images\icons\favicon-32x32.png" />
+    <Content Include="Content\subtheme\assets\images\icons\favicon.ico" />
+    <Content Include="Content\subtheme\assets\images\icons\safari-pinned-tab.svg" />
+    <Content Include="Content\subtheme\assets\images\icons\site.html" />
+    <Content Include="Content\subtheme\assets\images\logo-footer.png" />
+    <Content Include="Content\subtheme\assets\images\logo-icon.png" />
+    <Content Include="Content\subtheme\assets\images\logo.png" />
+    <Content Include="Content\subtheme\assets\images\menu\banner-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\banner-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\10.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\11.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\12.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\13.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\14.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\15.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\16.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\17.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\18.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\19.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\20.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\21.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\22.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\23.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\24.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\5.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\6.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\7.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\8.jpg" />
+    <Content Include="Content\subtheme\assets\images\menu\demos\9.jpg" />
+    <Content Include="Content\subtheme\assets\images\nav-next-shadow.png" />
+    <Content Include="Content\subtheme\assets\images\nav-prev-shadow.png" />
+    <Content Include="Content\subtheme\assets\images\page-header-bg.jpg" />
+    <Content Include="Content\subtheme\assets\images\payments-summary.png" />
+    <Content Include="Content\subtheme\assets\images\payments.png" />
+    <Content Include="Content\subtheme\assets\images\popup\newsletter\img-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\popup\newsletter\logo.png" />
+    <Content Include="Content\subtheme\assets\images\portfolio\4cols\item-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\4cols\item-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\4cols\item-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\4cols\item-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\4cols\item-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\4cols\item-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\4cols\item-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\4cols\item-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\fullwidth\item-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\fullwidth\item-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\fullwidth\item-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\fullwidth\item-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\fullwidth\item-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\fullwidth\item-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\fullwidth\item-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\fullwidth\item-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\item-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\item-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\item-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\item-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\item-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\item-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-3cols\item-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-3cols\item-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-3cols\item-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-3cols\item-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-3cols\item-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-3cols\item-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-4cols\item-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-4cols\item-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-4cols\item-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-4cols\item-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-4cols\item-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-4cols\item-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-4cols\item-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\portfolio\masonry-4cols\item-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\cart\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\cart\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\5cols\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\5cols\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\5cols\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\5cols\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\5cols\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-1-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-1-3-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-1-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-3-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-thumb-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-thumb-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-thumb-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-thumb-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\elements\product-thumb-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-10.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-11-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-11-3-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-11-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-11.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-12.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-13-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-13-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-13.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-14-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-14-3-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-14-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-14.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-15.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-4-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-4-3-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-4-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-5-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-5-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-8-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-8-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-9-2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-9-3-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-9-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\product-9.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\1-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\1-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\1-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\2-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\2-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\3-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\3-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\4-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\4-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\centered\1-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\centered\1-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\centered\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\centered\2-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\centered\2-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\centered\3-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\centered\3-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\centered\4-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\centered\4-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\1-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\1-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\2-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\2-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\3-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\3-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\4-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\4-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\bg-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\bg-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\extended\sign.png" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\1-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\1-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\1-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\2-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\2-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\3-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\3-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\3-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\4-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\4-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\fullwidth\4-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\gallery\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\gallery\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\gallery\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\gallery\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\masonry\1-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\masonry\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\masonry\2-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\masonry\2-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\masonry\2-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\masonry\3-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\masonry\3-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\masonry\3-thumb.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\masonry\4-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\masonry\4-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar-gallery\1-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar-gallery\1-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar-gallery\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar-gallery\2-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar-gallery\2-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar-gallery\3-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar-gallery\3-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar-gallery\4-big.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar-gallery\4-small.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sidebar\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sticky\1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sticky\2.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sticky\3.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\single\sticky\4.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\sticky\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\table\product-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\table\product-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\products\table\product-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\slider\slide-1-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\slider\slide-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\slider\slide-2-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\slider\slide-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\slider\slide-3-480w.jpg" />
+    <Content Include="Content\subtheme\assets\images\slider\slide-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\stores\img-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\stores\img-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\team\about-2\member-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\team\about-2\member-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\team\about-2\member-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\team\about-2\member-4.jpg" />
+    <Content Include="Content\subtheme\assets\images\team\about-2\member-5.jpg" />
+    <Content Include="Content\subtheme\assets\images\team\about-2\member-6.jpg" />
+    <Content Include="Content\subtheme\assets\images\team\about-2\member-7.jpg" />
+    <Content Include="Content\subtheme\assets\images\team\about-2\member-8.jpg" />
+    <Content Include="Content\subtheme\assets\images\team\member-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\team\member-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\team\member-3.jpg" />
+    <Content Include="Content\subtheme\assets\images\testimonials\user-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\testimonials\user-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\video\bg-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\video\bg-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\video\poster-1.jpg" />
+    <Content Include="Content\subtheme\assets\images\video\poster-2.jpg" />
+    <Content Include="Content\subtheme\assets\images\video\poster-3.jpg" />
+    <Content Include="Content\subtheme\assets\js\bootstrap-input-spinner.js" />
+    <Content Include="Content\subtheme\assets\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-10.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-11.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-12.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-13.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-14.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-15.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-16.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-17.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-18.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-19.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-2.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-20.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-21.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-24.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-3.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-4.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-5.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-6.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-7.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-8.js" />
+    <Content Include="Content\subtheme\assets\js\demos\demo-9.js" />
+    <Content Include="Content\subtheme\assets\js\imagesloaded.pkgd.min.js" />
+    <Content Include="Content\subtheme\assets\js\isotope.pkgd.min.js" />
+    <Content Include="Content\subtheme\assets\js\jquery.countdown.min.js" />
+    <Content Include="Content\subtheme\assets\js\jquery.countTo.js" />
+    <Content Include="Content\subtheme\assets\js\jquery.elevateZoom.min.js" />
+    <Content Include="Content\subtheme\assets\js\jquery.hoverIntent.min.js" />
+    <Content Include="Content\subtheme\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\subtheme\assets\js\jquery.min.js" />
+    <Content Include="Content\subtheme\assets\js\jquery.plugin.min.js" />
+    <Content Include="Content\subtheme\assets\js\jquery.sticky-kit.min.js" />
+    <Content Include="Content\subtheme\assets\js\jquery.waypoints.min.js" />
+    <Content Include="Content\subtheme\assets\js\main.js" />
+    <Content Include="Content\subtheme\assets\js\nouislider.min.js" />
+    <Content Include="Content\subtheme\assets\js\owl.carousel.min.js" />
+    <Content Include="Content\subtheme\assets\js\superfish.min.js" />
+    <Content Include="Content\subtheme\assets\js\wNumb.js" />
+    <Content Include="Content\subtheme\assets\main.js" />
+    <Content Include="Content\subtheme\assets\vendor\line-awesome\line-awesome\line-awesome\css\line-awesome.min.css" />
+    <Content Include="Content\subtheme\assets\vendor\line-awesome\line-awesome\line-awesome\fonts\line-awesomeeb4f.svg" />
+    <Content Include="Content\subtheme\lib\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\subtheme\lib\isotope\jquery.isotope.min.js" />
+    <Content Include="Content\subtheme\lib\jquery.appear\jquery.appear.min.js" />
+    <Content Include="Content\subtheme\lib\jquery.lazyload\jquery.lazyload.min.js" />
+    <Content Include="Content\subtheme\lib\jquery\jquery.min.js" />
+    <Content Include="Content\subtheme\popup\quickView.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\assets\fonts\fa-solid-900.eot" />
+    <Content Include="Content\assets\fonts\fa-solid-900.ttf" />
+    <Content Include="Content\assets\fonts\fa-solid-900.woff" />
+    <Content Include="Content\assets\fonts\fa-solid-900.woff2" />
+    <Content Include="Content\assets\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Content\assets\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="Content\assets\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\subtheme\assets\fonts\flaming\flaming-webfont.woff" />
+    <Content Include="Content\subtheme\assets\fonts\flaming\flaming-webfont.woff2" />
+    <Content Include="Content\subtheme\assets\fonts\icon51c1.eot" />
+    <Content Include="Content\subtheme\assets\fonts\icon51c1.ttf" />
+    <Content Include="Content\subtheme\assets\fonts\icon51c1.woff" />
+    <Content Include="Content\subtheme\assets\fonts\icon51c1.woff2" />
+    <Content Include="Content\subtheme\assets\fonts\molla0ab2.eot" />
+    <Content Include="Content\subtheme\assets\fonts\molla0ab2.ttf" />
+    <Content Include="Content\subtheme\assets\fonts\molla0ab2.woff" />
+    <Content Include="Content\subtheme\assets\fonts\molla0ab2.woff2" />
+    <Content Include="Content\subtheme\assets\vendor\line-awesome\line-awesome\line-awesome\fonts\line-awesome0176.eot" />
+    <Content Include="Content\subtheme\assets\vendor\line-awesome\line-awesome\line-awesome\fonts\line-awesomeeb4f.eot" />
+    <Content Include="Content\subtheme\assets\vendor\line-awesome\line-awesome\line-awesome\fonts\line-awesomeeb4f.ttf" />
+    <Content Include="Content\subtheme\assets\vendor\line-awesome\line-awesome\line-awesome\fonts\line-awesomeeb4f.woff" />
+    <Content Include="Content\subtheme\assets\vendor\line-awesome\line-awesome\line-awesome\fonts\line-awesomeeb4f.woff2" />
+    <Content Include="Content\assets\css\style.scss" />
+    <None Include="Properties\PublishProfiles\test.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="ThemeCK\ckeditor\adapters\jquery.js" />
+    <Content Include="ThemeCK\ckeditor\build-config.js" />
+    <Content Include="ThemeCK\ckeditor\ckeditor.js" />
+    <Content Include="ThemeCK\ckeditor\config.js" />
+    <Content Include="ThemeCK\ckeditor\contents.css" />
+    <Content Include="ThemeCK\ckeditor\curvedLines.js" />
+    <Content Include="ThemeCK\ckeditor\plugins\wsc2\plugin.js" />
+    <Content Include="ThemeCK\ckeditor\styles.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AddCategory.cshtml" />
+    <Content Include="Views\Admin\ListCategory.cshtml" />
+    <Content Include="Views\Admin\EditCategory.cshtml" />
+    <Content Include="Views\Admin\ListSubCategory.cshtml" />
+    <Content Include="Views\Admin\AddSubCategory.cshtml" />
+    <Content Include="Views\Admin\EditSubCategory.cshtml" />
+    <Content Include="Views\Home\View.cshtml" />
+    <Content Include="Views\Home\View1.cshtml" />
+    <Content Include="Views\Home\View2.cshtml" />
+    <Content Include="Views\Admin\ListCompany.cshtml" />
+    <Content Include="Views\Admin\EditCompany.cshtml" />
+    <Content Include="Views\Admin\AddProduct.cshtml" />
+    <Content Include="Views\Admin\ListProduct.cshtml" />
+    <Content Include="Views\Admin\EditProduct.cshtml" />
+    <Content Include="Views\Admin\UploadProductImages.cshtml" />
+    <Content Include="Views\Admin\SubCategoryProduct.cshtml" />
+    <Content Include="Views\Admin\ListProductImages.cshtml" />
+    <Content Include="Views\Shared\_CustomerLayout.cshtml" />
+    <Content Include="Views\Customer\ListProduct.cshtml" />
+    <Content Include="Views\Home\View3.cshtml" />
+    <Content Include="Views\Customer\RegisterCustomer.cshtml" />
+    <Content Include="Views\Home\View4.cshtml" />
+    <Content Include="Views\Home\View5.cshtml" />
+    <Content Include="Views\Home\View6.cshtml" />
+    <Content Include="Views\Admin\AddFeature.cshtml" />
+    <Content Include="Views\Admin\AddBenefits.cshtml" />
+    <Content Include="Views\Home\View7.cshtml" />
+    <Content Include="Views\Home\View8.cshtml" />
+    <Content Include="Views\Admin\AddPolicyDocument.cshtml" />
+    <Content Include="Views\Admin\AddClaimDocument.cshtml" />
+    <Content Include="Views\Home\View9.cshtml" />
+    <Content Include="Views\Admin\AddTermAndCondition.cshtml" />
+    <Content Include="Views\Home\View10.cshtml" />
+    <Content Include="Views\Admin\AddCustomerInputDetails.cshtml" />
+    <Content Include="Views\Home\View11.cshtml" />
+    <Content Include="Views\Home\View12.cshtml" />
+    <Content Include="Views\Home\View13.cshtml" />
+    <Content Include="Views\Home\View14.cshtml" />
+    <Content Include="Views\Home\View15.cshtml" />
+    <Content Include="Views\Admin\ProductFeature.cshtml" />
+    <Content Include="Views\Admin\EditTermAndCondition.cshtml" />
+    <Content Include="Views\Admin\EditProductFeature.cshtml" />
+    <Content Include="Views\Admin\CustomerFormData.cshtml" />
+    <Content Include="Views\Shared\_AgentLayout.cshtml" />
+    <Content Include="Views\Product\Dashboard.cshtml" />
+    <Content Include="Views\Account\RegisterAgent.cshtml" />
+    <Content Include="Views\Product\AddProduct.cshtml" />
+    <Content Include="Views\Home\View16.cshtml" />
+    <Content Include="Views\Home\View17.cshtml" />
+    <Content Include="Views\Account\RegisterCompany.cshtml" />
+    <Content Include="Views\Shared\_CompanyLayout.cshtml" />
+    <Content Include="Views\Company\CompanyProduct.cshtml" />
+    <Content Include="Views\Home\View18.cshtml" />
+    <Content Include="Views\Home\View19.cshtml" />
+    <Content Include="Views\Admin\AddClaimForm.cshtml" />
+    <Content Include="Views\Home\View20.cshtml" />
+    <Content Include="ThemeCK\ckeditor\CHANGES.md" />
+    <Content Include="ThemeCK\ckeditor\LICENSE.md" />
+    <Content Include="ThemeCK\ckeditor\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="CategoryImages\" />
+    <Folder Include="ClaimDocument\" />
+    <Folder Include="CompanyImages\" />
+    <Folder Include="Content\subtheme\popup\assets\images\demos\demo-6\products\" />
+    <Folder Include="Content\subtheme\popup\assets\images\popup\quickView\" />
+    <Folder Include="Content\subtheme\popup\popup\" />
+    <Folder Include="PolicyDocument\" />
+    <Folder Include="ProductImages\" />
+    <Folder Include="SubCategoryImages\" />
+    <Folder Include="ThemeCK\ckeditor\lang\" />
+    <Folder Include="ThemeCK\ckeditor\samples\" />
+    <Folder Include="ThemeCK\ckeditor\skins\" />
+    <Folder Include="ThemeCK\ckeditor\vendor\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105180616258_init.resx">
+      <DependentUpon>202105180616258_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105180730077_initial.resx">
+      <DependentUpon>202105180730077_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181017510_addcategoryandsubcategorytable.resx">
+      <DependentUpon>202105181017510_addcategoryandsubcategorytable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105210610380_addcompanyandproductandproductimagestable.resx">
+      <DependentUpon>202105210610380_addcompanyandproductandproductimagestable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105210958275_removecompanynamefromproducttable.resx">
+      <DependentUpon>202105210958275_removecompanynamefromproducttable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105220838040_adddescriptioninproducttable.resx">
+      <DependentUpon>202105220838040_adddescriptioninproducttable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107261207230_addcustomerprofiletable.resx">
+      <DependentUpon>202107261207230_addcustomerprofiletable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107270420344_addemailincustomerprofile.resx">
+      <DependentUpon>202107270420344_addemailincustomerprofile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107310532056_addproductmaindetails.resx">
+      <DependentUpon>202107310532056_addproductmaindetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108040419480_addregisterfromincustomertable.resx">
+      <DependentUpon>202108040419480_addregisterfromincustomertable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108040739139_addproductbenefitsandfeatures.resx">
+      <DependentUpon>202108040739139_addproductbenefitsandfeatures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108050641555_addpolicyandclaimdocuments.resx">
+      <DependentUpon>202108050641555_addpolicyandclaimdocuments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108200435052_addtermandconditiontable.resx">
+      <DependentUpon>202108200435052_addtermandconditiontable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108200854029_addcustomerdynamicinputdetailstable.resx">
+      <DependentUpon>202108200854029_addcustomerdynamicinputdetailstable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108200913390_addtitleincustomerinputtable.resx">
+      <DependentUpon>202108200913390_addtitleincustomerinputtable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108210742543_addcitytable.resx">
+      <DependentUpon>202108210742543_addcitytable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108230511378_addforeignkeyindynamicinputdeatilsintable.resx">
+      <DependentUpon>202108230511378_addforeignkeyindynamicinputdeatilsintable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260544302_addcustomerformandpaymentinfotable.resx">
+      <DependentUpon>202108260544302_addcustomerformandpaymentinfotable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260607555_addcusomeridandproductidincustomerformtable.resx">
+      <DependentUpon>202108260607555_addcusomeridandproductidincustomerformtable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260758505_deletemodel.resx">
+      <DependentUpon>202108260758505_deletemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260801166_addcustomersaledatatable.resx">
+      <DependentUpon>202108260801166_addcustomersaledatatable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260854332_deletedatetimeinpaymentinfo.resx">
+      <DependentUpon>202108260854332_deletedatetimeinpaymentinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260856186_adddatetimeinpaymentinfo.resx">
+      <DependentUpon>202108260856186_adddatetimeinpaymentinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108261035168_adddremainingamountinpaymentinfotable.resx">
+      <DependentUpon>202108261035168_adddremainingamountinpaymentinfotable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108270407055_deleteamountpaidinpaymentinfo.resx">
+      <DependentUpon>202108270407055_deleteamountpaidinpaymentinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108270408311_addamountpaidinpaymentinfo.resx">
+      <DependentUpon>202108270408311_addamountpaidinpaymentinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108270438297_addinstallmentplanpaymentinfo.resx">
+      <DependentUpon>202108270438297_addinstallmentplanpaymentinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108270614161_addsatrtandexpirydatepaymentinfo.resx">
+      <DependentUpon>202108270614161_addsatrtandexpirydatepaymentinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108310659149_addagenntrole.resx">
+      <DependentUpon>202108310659149_addagenntrole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108310847241_addcompanyNameinaspnetusers.resx">
+      <DependentUpon>202108310847241_addcompanyNameinaspnetusers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109010442563_addwebdocandcompanyamountinpaymentinfo.resx">
+      <DependentUpon>202109010442563_addwebdocandcompanyamountinpaymentinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109010447480_deletecompanyamountinpaymentinfo.resx">
+      <DependentUpon>202109010447480_deletecompanyamountinpaymentinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109010448481_addcompanyamountinpaymentinfo.resx">
+      <DependentUpon>202109010448481_addcompanyamountinpaymentinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109010707148_addbankchargesinpaymentinfo.resx">
+      <DependentUpon>202109010707148_addbankchargesinpaymentinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109290907090_addcompanycartables.resx">
+      <DependentUpon>202109290907090_addcompanycartables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110090743301_updatecompany.resx">
+      <DependentUpon>202110090743301_updatecompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110120806228_addsalepriceinproducts.resx">
+      <DependentUpon>202110120806228_addsalepriceinproducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110221023300_addioscolorcodeincompanytable.resx">
+      <DependentUpon>202110221023300_addioscolorcodeincompanytable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110221112265_removeioscolorcode.resx">
+      <DependentUpon>202110221112265_removeioscolorcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110251105430_addclaimsdynamicinputs.resx">
+      <DependentUpon>202110251105430_addclaimsdynamicinputs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110260518074_addclaimraisingtable.resx">
+      <DependentUpon>202110260518074_addclaimraisingtable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62496</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62496/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

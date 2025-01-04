@@ -1,0 +1,44 @@
+﻿@model IEnumerable<EcomparePortal.Models.ProductFeatures>
+
+@{
+    ViewBag.Title = "ProductFeature";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/assets/css/StyleSheet1.css" />
+}
+<div class="row ml-2">
+    <h4 class="mt-4">Product Feature</h4>
+    <a href="@Url.Action("AddFeature","Admin",new { id= Url.RequestContext.RouteData.Values["id"] })" class="btn d-block mt-4 ml-3" style="background-color:#57789c;color:white">Add Feature</a>
+</div>
+<table class="table table-bordered table-striped table-hover styled-table ml-3" style="width:95%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feature)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model)
+{
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feature)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditProductFeature", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteProductFeature", new { id = item.Id })
+            </td>
+        </tr>
+    </tbody>
+}
+
+</table>

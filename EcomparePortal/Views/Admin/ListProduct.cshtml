@@ -1,0 +1,94 @@
+﻿@model IEnumerable<EcomparePortal.Models.Product>
+
+@{
+    ViewBag.Title = "ListProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="~/Content/assets/css/StyleSheet1.css" />
+}
+
+<div class="row">
+    <h2 class="ml-4 mt-4">List Product</h2>
+    <a class="btn d-block  ml-3 mt-4" style="background-color:#57789c;color:white;line-height:30px" href="@Url.Action("AddProduct","Product",new { id= Url.RequestContext.RouteData.Values["id"] })">Add Product</a>
+</div>
+@foreach (var item in Model)
+{
+
+    <div class="col-md-4  mt-5  mb-2">
+        <div class="card">
+            
+            <img class="card-img-top p-2" src="@item.Logo" alt="Card image cap" style="width:100%;height:150px">
+            <span class="text-center" style="width:70px;background-color:yellow;position:absolute;top:12px;left:18px">@item.IsFeatured</span>
+            <div class="card-body mt-0 pt-0">
+
+                <div class="template-demo">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            
+                            <h1 class="m-0 p-0">Rs @item.ProductPrice</h1>
+                            <h6 class="m-0 p-0">@item.Company.CompanyName</h6>
+                            <h6 class="m-0 p-0">@item.ProductName</h6>
+                            @{
+
+                                string x = item.Description;
+
+                                if (x.Length > 50)
+                                {
+                                    x = x.Substring(0, 50);
+                                    <span class="m-0 p-0" style="text-align:justify"> @x ...</span>
+                                }
+                                else
+                                {
+                                    <span class="m-0 p-0" style="text-align:justify"> @x</span>
+                                }
+
+
+                            }
+                           
+                           
+
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <div class="m-auto">
+                    @*<a href="@Url.Action("ListProductImages","Admin",new { id=item.Id})" class="btn btn-success ml-1">Detail</a>*@
+                    <a href="@Url.Action("ProductFeature","Admin",new { id=item.Id})" class="btn btn-success ml-1">Add Feature</a>
+                    <a href="@Url.Action("AddBenefits","Admin",new { id=item.Id})" class="btn btn-success ml-1">Add Benefits</a>
+                    <a href="@Url.Action("ProductTermAndCondition","Admin",new { id=item.Id})" class="btn btn-success ml-1">TermCondition</a>
+                    <a href="@Url.Action("CustomerFormData","Admin",new { id=item.Id})" class="btn btn-success ml-1">Form</a>
+                    @*<a href="@Url.Action("AddPolicyDocument","Admin",new { id=item.Id})" class="btn btn-success ml-1">Policy</a>
+                    <a href="@Url.Action("AddClaimDocument","Admin",new { id=item.Id})" class="btn btn-success ml-1">Claim</a>*@
+                   
+                    @*<a href="@Url.Action("EditSubCategory","Admin",new { id=item.Id})"></a>
+                        <a href="@Url.Action("DeleteSubCategory","Admin",new { id=item.Id})"></a>*@
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+
+<style>
+    .line {
+        width: 100%;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .card {
+        box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+
+    hr {
+        width: 100% !important;
+    }
+
+    .col-md-4 {
+        float: left;
+    }
+</style>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<EcomparePortal.Models.SubCategory>
+
+@{
+    ViewBag.Title = "ListSubCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="~/Content/assets/css/StyleSheet1.css" />
+}
+<div class="row">
+    <h2 class="ml-4 mt-4">@ViewBag.subcategoryname Category</h2>
+    <a class="btn d-block  ml-3 mt-4" style="background-color:#57789c;color:white;line-height:30px" href="@Url.Action("AddSubCategory", "Admin", new { id = Url.RequestContext.RouteData.Values["id"] })">Add SubCategory</a>
+</div>
+@foreach (var item in Model)
+{
+
+    <div class="col-md-4  mt-5  mb-4">
+        <div class="card" style="height:217px">
+            <div class="card-header w-100 " style="background-color:#437a8f">
+                <div class="row m-0 p-0 w-100" style="">
+                    <div class="col-md-6 m-0 p-0">
+                        <h5 class="card-title  text-white">@item.SubCategoryName</h5>
+                    </div>
+                    <div class="col-md-3 m-0 p-0">
+                        @if (item.Status == "Active")
+                        {
+                            <div class="badge badge-success badge-pill " >@item.Status</div>
+                        }
+                        else
+                        {
+                            <div class="badge badge-danger badge-pill " >@item.Status</div>
+                        }
+                    </div>
+                    <div class="col-md-3 m-0 p-0">
+                        <a href="@Url.Action("EditSubCategory","Admin",new { id=item.Id})" class="btn btn-primary d-inline-flex justify-content-center align-items-center bg-deep-blue" style="border-radius:50%;width:30px;height:30px">
+                            <img src="~/Content/assets/images/edit.png" style="width:20px;height:20px" />
+                        </a>
+                        
+                        <a href="@Url.Action("DeleteSubCategory","Admin",new { id=item.Id})" class="btn btn-danger d-inline-flex justify-content-center align-items-center " style="border-radius:50%;width:30px;height:30px">
+                        <img src="~/Content/assets/images/delete.png" style="width:20px;height:20px" /></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="template-demo">
+                    <div class="row">
+                       
+                        
+                        <div class="col-md-12 ">
+                          @{
+
+                              string x = item.Description;
+
+                              if (x.Length > 100)
+                              {
+                                  x = x.Substring(0, 100);
+                                    <strong>Description:</strong><br /><small class="m-0 p-0 text-muted" style="text-align:justify"> @x ...</small><br />
+                              }
+                              else
+                              {
+                                <strong>Description:</strong><br /><small class="m-0 p-0 text-muted" style="text-align:justify"> @x</small><br />
+                              }
+                        }
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <div class="m-auto">
+                        <a href="@Url.Action("SubCategoryProduct","Admin",new { id=item.Id})" class="btn btn-success ml-1">Detail</a>
+
+                    <a href="@Url.Action("AddClaimForm","Admin",new { id=item.Id})" class="btn btn-success ml-1">Claim Form</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+<style>
+    .line {
+        width: 100%;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .card {
+        box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+
+    hr {
+        width: 100% !important;
+    }
+
+    .col-md-4 {
+        float: left;
+    }
+</style>

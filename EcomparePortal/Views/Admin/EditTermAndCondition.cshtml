@@ -1,0 +1,47 @@
+﻿@model EcomparePortal.Models.ProductTermAndCondition
+
+@{
+    ViewBag.Title = "EditTermAndCondition";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <script src="~/ThemeCK/ckeditor/ckeditor.js"></script>
+
+    <script src="~/ThemeCK/ckeditor/adapters/jquery.js"></script>
+    <script src="~/ThemeCK/ckeditor/styles.js"></script>
+    <script src="~/ThemeCK/ckeditor/config.js"></script>
+    <script src="~/ThemeCK/ckeditor/plugins/colorbutton/plugin.js"></script>
+    <script src="~/ThemeCK/ckeditor/curvedLines.js"></script>
+}
+<style>
+    #cke_FullDescription {
+        margin-right: 30px;
+    }
+</style>
+<h2>Edit TermAndCondition</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+       
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Hidden("Id",(string)ViewBag.id)
+
+        <div class="col-md-12">
+          
+                <textarea class="form-control col-md-11 ml-4 " id="TermAndCondition" name="termcondition">@ViewBag.TermAndCondition</textarea>
+          
+        </div><br /><br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    CKEDITOR.replace("TermAndCondition");
+    CKEDITOR.config.extraPlugins("colorbutton");
+</script>
